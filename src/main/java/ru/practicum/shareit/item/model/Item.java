@@ -6,19 +6,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * TODO Sprint add-controllers.
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Item {
     private Long id;
-    @NotBlank
+    @NotBlank(message = "Название не должно быть пустым")
     private String name;
-    @NotBlank
+    @NotBlank(message = "Описание не должно быть пустым")
     private String description;
-    @NotNull
+    @NotNull(message = "Доступность не должна быть пустой")
     private Boolean available;
     private Long ownerId;
 }
