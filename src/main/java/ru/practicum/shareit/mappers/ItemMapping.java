@@ -24,4 +24,5 @@ public interface ItemMapping {
 
     @Mapping(target = "authorName", expression = "java(comment.getAuthor().getName())")
     CommentDto toDtoComment(Comment comment);
+
 }
