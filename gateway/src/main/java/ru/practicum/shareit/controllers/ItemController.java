@@ -11,6 +11,8 @@ import ru.practicum.shareit.dto.CommentCreateDto;
 import ru.practicum.shareit.dto.ItemCreateDto;
 import ru.practicum.shareit.dto.ItemDto;
 
+import java.util.Collections;
+
 
 @Controller
 @RequestMapping("/items")
@@ -50,6 +52,10 @@ public class ItemController {
 
     @GetMapping("/search")
     public ResponseEntity<Object> searchItems(@RequestParam String text) {
+
+        if (text == null || text.trim().isEmpty()) {
+            return ResponseEntity.ok(Collections.emptyList());
+        }
         return itemClient.searchItems(text);
     }
 
